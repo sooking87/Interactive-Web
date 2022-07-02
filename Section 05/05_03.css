@@ -1,0 +1,44 @@
+.stage {
+    overflow: hidden;
+    position: relative;
+    /* vw: viewport Width */
+    width: 100vw;
+    height: 75vw;
+    background: yellow;
+}
+@keyframes moving {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(80vw);
+    }
+}
+.ilbuni {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    animation: moving infinite alternate;
+    cursor: pointer;
+}
+.ilbuni:nth-of-type(1) {
+    left: 5%;
+    bottom: 5%;
+    background-image: url('https://w7.pngwing.com/pngs/108/394/png-transparent-spongebob-squarepants-illustration-spongebob-squarepants-nickelodeon-art-spongebob-cartoon-miscellaneous-vehicle-film.png');
+    animation-duration: 2s;
+}
+.ilbuni:nth-of-type(2) {
+    left: 10%;
+    bottom: 3%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUXGDkimy7268aAcviVOSUJjko0p8S-9X3QizdbCuWPap0oKtoprvOpNaCJuDsa5n-SMQ&usqp=CAU');
+    animation-duration: 3s;
+}
+.ilbuni:nth-of-type(3) {
+    left: 7%;
+    bottom: 10%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLabNy_hggY4x3wYS3NY88-YbAhRQJ5qvQ5vLUcvkimss5hYcqqohr2t381QvwfteXIoI&usqp=CAU');
+    animation-duration: 4s;
+}

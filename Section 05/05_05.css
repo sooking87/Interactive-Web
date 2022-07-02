@@ -1,0 +1,17 @@
+.menu {
+    display: flex;
+    margin-top: -19vh;
+    padding: 2em;
+    border-radius: 20px;
+    background: #eee;
+}
+.menu-btn {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 1em;
+    padding: 0.5em 1em 0.5em 0.5em;
+    border: 5px solid white;
+    border-radius: 20px;
+    outline: 0;
+    font: 900 1.2rem notoSans;
+}

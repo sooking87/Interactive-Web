@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background: #333;
+        }
+        .door {
+            
+            position: relative;
+            width: 100px;
+            height: 150px;
+        }
+        .door-back {
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+        .ilbuni {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 100%;
+            background-size: contain;
+            transform: translate3d(100%, 0, 0);
+            transition: 0.5s 0.3s;
+            
+        }
+        .door:nth-child(1) .ilbuni{
+            background-image: url(https://w.namu.la/s/4c30cf3fed5c1a9052a52b527b9c3a4ae98534ee72dfbfd8d728cec568db7a657709d8d87507681663b495ed4355acd9049fd552bf810bda0c5252715ba7c634e7edf9273a1cee12438710c49fba92f5104394dc8e3bddb1809500904fbd8268b258e1f498b7db83dd81bb69a2be1515);
+        }
+        .door:nth-child(2) .ilbuni{
+            background-image: url(https://w.namu.la/s/0c6301df01fc4f180ec65717bad3d0254258abf0be33299e55df7c261040f517518eb9008a1a2cd3d7b8b7777d70182c185bc891b1054dc57b11cc46fd29130a81264d5b79eaeb5777d606bcb8314b7a2f97e4ca0729ef52972f7f5222c5a949);
+        }
+        .door:nth-child(3) .ilbuni{
+            background-image: url(https://w.namu.la/s/4a386289e4beb6eb2941b22033eebfa6d487e57c8dbae93e74337a78942ead59c224683379fd4dabd772432019e68a13aae29fafca6a5e532201108f6afb31ab3800938c745fcb92d2d329bcb9ea24f917547f56bfddbb1061e6c1c5ecc5ffb8e0aa084cf2c17fc168cb11589a28d2e9);
+        }
+        .door-body {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            transform-origin: 0%;
+
+        }
+        .door:nth-child(1) .door-body {
+            background: rgba(255, 0, 0, 0.7);
+        }
+        .door:nth-child(2) .door-body {
+            background: rgba(0, 255, 0, 0.7);
+        }
+        .door:nth-child(3) .door-body {
+            background: rgba(0, 0, 255, 0.7);
+        }
+        .door-opened .door-body {
+            transform: perspective(800px) rotateY(-110deg);
+        }
+        .door-opened .ilbuni {
+            transform: translate3d(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="door">
+            <div class="door-back">
+                <div class="ilbuni"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="ilbuni"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="ilbuni"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            const stage = document.querySelector('.stage');
+            // 현재 활성화된 아이템을 저장하고 있는 변수
+            let currentItem;
+
+            // 활성화
+            function activate(elem) {
+                elem.classList.add('door-opened');
+                currentItem = elem;
+            }
+
+            // 비활성화
+            function inactivate(elem) {
+                elem.classList.remove('door-opened');
+            }
+
+            function doorHandler(e) {
+                //이벤트 객체 타겟 잡기
+                const targetElem = e.target;
+
+                if (currentItem && targetElem.classList.contains('door-body')) {
+                    inactivate(currentItem);
+                }
+
+                if (targetElem.classList.contains('door-body')) {
+                    activate(targetElem.parentNode);
+                }
+            }
+            stage.addEventListener('click', doorHandler);
+
+            // 페이지 로드되면 첫 번째 문이 바로 열릴 수 있도록
+            activate( document.querySelector('.door:first-child'));
+        }) ();
+    </script>
+</body>
+</html>

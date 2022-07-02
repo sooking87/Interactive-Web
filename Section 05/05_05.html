@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="05_05.css">
+</head>
+<body>
+    <div class="menu">
+        <button class="menu-btn">
+            <img src="https://w7.pngwing.com/pngs/108/394/png-transparent-spongebob-squarepants-illustration-spongebob-squarepants-nickelodeon-art-spongebob-cartoon-miscellaneous-vehicle-film.png" alt="스폰지밥">
+            <span>스폰지밥 1</span>
+        </button>
+        <button class="menu-btn">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUXGDkimy7268aAcviVOSUJjko0p8S-9X3QizdbCuWPap0oKtoprvOpNaCJuDsa5n-SMQ&usqp=CAU" alt="스폰지밥">
+            <span>스폰지밥 2</span>
+        </button>
+        <button class="menu-btn">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLabNy_hggY4x3wYS3NY88-YbAhRQJ5qvQ5vLUcvkimss5hYcqqohr2t381QvwfteXIoI&usqp=CAU" alt="스폰지밥">
+            <span>스폰지밥 3</span>
+        </button>
+    </div>
+    <script>
+        const menu = document.querySelector('.menu');
+        function clickBtnHandler(e) {
+            let elem = e.target;
+            while (!elem.classList.contains('menu-btn')) {
+                elem = elem.parentNode;
+                if (elem.nodeName === 'BODY') {
+                    elem = null;
+                    return;
+                }
+            }
+        }
+        
+        menu.addEventListener('click', clickBtnHandler);
+    </script>
+</body>
+</html>

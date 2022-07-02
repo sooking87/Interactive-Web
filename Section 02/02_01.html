@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 60vh;
+            background: #fff000;
+            /*perspective: 500px;*/ /* 얼마나 내 눈에서 멀리있는 시점으로 바라볼 것이냐 */
+        }
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 150px;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            margin: 1em;
+            /* rem : html의 font-size 기준의 상대적 크기
+               em : font-size 기준의 상대적 크기 */
+            background: red;
+            transform: perspective(500px) rotateY(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="world">
+        <div class="card">
+            CARD
+        </div>
+        <div class="card">
+            CARD
+        </div>
+        <div class="card">
+            CARD
+        </div>
+    </div>
+</body>
+</html>
