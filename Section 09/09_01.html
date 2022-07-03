@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <style>
+        .ball {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            margin: -15px 0 0 -15px;
+            background: red;
+            border-radius: 50%;
+            transition: 1s;
+        }
+        .ball.end {
+            background: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div> 
+    <script>
+        const ballElem = document.querySelector('.ball');
+
+        window.addEventListener('click', function(e) {
+            ballElem.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+        })
+
+        ballElem.addEventListener('transitionend', function(e) {
+            console.log(e.elapsedTime); // 재생되는데 얼마나 걸리는지 나옴
+            console.log(e.propertyName); // 속성 이름 알기
+            ballElem.classList.add('end');
+        })
+       
+        // transitionstart
+    </script>
+</body>
+</html>

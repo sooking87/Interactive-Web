@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Interactive Web</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="reset.css">
     <style>
     img {
         max-width: 100%;
@@ -27,7 +27,7 @@
     .ilbuni {
         width: 100px;
         margin: 20px auto;
-        transition: 1s;
+        transition: 0.5s;
     }
     .ilbuni.zoom {
         transform: scale(2);
@@ -47,9 +47,24 @@
     <script>
         (function() {
             const outputElem = document.querySelector('.output');
-
+            const ilbuniElem = document.querySelector('.ilbuni');
+            
+            function showLarge() {
+                ilbuniElem.classList.add('zoom');
+            }
+            function showSmall() {
+                ilbuniElem.classList.remove('zoom');
+            }
             window.addEventListener('scroll', function() {
-                outputElem.innerHTML = window.pageYOffset;
+                let posY = ilbuniElem.getBoundingClientRect().top;
+                outputElem.innerHTML = posY;
+                console.log(ilbuniElem.offsetTop);
+
+                if (posY < window.innerHeight * 0.2) {
+                    showLarge();
+                } else {
+                    showSmall();
+                }
             })
         })();
     </script>
