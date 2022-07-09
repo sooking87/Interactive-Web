@@ -1,0 +1,39 @@
+.world {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+.stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+.house {
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+.wall {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.wall-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.wall-title {
+    font-size: 5rem;
+    
+}
